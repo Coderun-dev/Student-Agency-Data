@@ -1,0 +1,28 @@
+# Updated Plot with Bold Title
+plt.figure(figsize=(12, 6))
+
+# Plot Magic School scores
+plt.plot(topics, magic_school_scores, '--', color='red', label='Magic School')
+for i, score in enumerate(magic_school_scores):
+    plt.annotate(score, (topics[i], score), textcoords="offset points", xytext=(0, 5), ha='center')
+
+# Plot School AI scores
+plt.plot(topics, school_ai_scores, '-.', color='blue', label='School AI')
+for i, score in enumerate(school_ai_scores):
+    plt.annotate(score, (topics[i], score), textcoords="offset points", xytext=(0, 5), ha='center')
+
+# Plot Our Generator scores (in green)
+plt.plot(topics, our_generator_scores, '-', color='green', label='Our Generator')
+for i, score in enumerate(our_generator_scores):
+    plt.annotate(score, (topics[i], score), textcoords="offset points", xytext=(0, 5), ha='center')
+
+# Labels and bold title
+plt.xlabel("Topics")
+plt.ylabel("Student Agency Score")
+plt.title("Student Agency Score Comparison Across Platforms", fontweight='bold')
+plt.xticks(rotation=45, ha='right')
+plt.legend()
+
+# Show the plot
+plt.tight_layout()
+plt.show()
